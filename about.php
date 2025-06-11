@@ -12,10 +12,10 @@
     <h1 align="center"> Web Informatika 2023</h1>
     <hr size=""10px" color="blue">
     <nav> 
-        <a href="index.html" >HOME </a> 
-        <a href="profile.html">PROFILE</a>
-        <a href="about.html"> ABOUT US </a>
-        <a href="Login.html"> LOGIN </a>
+        <a href="index.php" >HOME </a> 
+        <a href="profile.php">PROFILE</a>
+        <a href="about.php"> ABOUT US </a>
+        <a href="Login.php"> LOGIN </a>
 
     </nav>
     <h2> Data Mahasiswa Informatika 23 Kelas B </h2>
