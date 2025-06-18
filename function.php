@@ -12,4 +12,22 @@ function query($query) {
         $rows[] = $row;
     }
     return $rows;
+    
+}function tambahmahasiswa ($data) {
+    global $koneksi;
+$nama = $_POST['nama'];
+    $nim = $_POST['nim'];
+    $jurusan = $_POST['jurusan'];
+    $noHP = $_POST['noHP'];
+    
+
+    $query = "INSERT INTO mahasiswa VALUES ('','','$nama', '$nim', '$jurusan', '$noHP')";
+    mysqli_query($koneksi, $query);
+    return mysqli_affected_rows($koneksi);
+    }
+   function hapusdata($id) {
+    global $koneksi;
+    $query = "DELETE FROM mahasiswa WHERE id = $id";
+    mysqli_query($koneksi, $query);
+    return mysqli_affected_rows($koneksi);
 }
