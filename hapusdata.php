@@ -2,21 +2,19 @@
 require 'function.php';
 
 if (!isset($_GET['id']) || empty($_GET['id'])) {
-    echo "
-    <script>
+    echo "<script>
         alert('ID tidak ditemukan.');
-        document.location.href = '../datamahasiswa.php';
+        document.location.href = 'datamahasiswa.php';
     </script>";
     exit;
 }
 
-$id = intval($_GET['id']); // jaga-jaga supaya id pasti berupa angka
+$id = intval($_GET['id']);
 
 if (hapusdata($id) > 0) {
-    echo "
-    <script>
+    echo "<script>
         alert('Data berhasil dihapus.');
-        document.location.href = '../datamahasiswa.php';
+        document.location.href = 'datamahasiswa.php';
     </script>";
 } else {
     echo "Gagal dihapus: " . mysqli_error($koneksi);
