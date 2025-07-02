@@ -73,3 +73,49 @@ function hapusdata($id) {
     mysqli_query($koneksi, "DELETE FROM mahasiswa WHERE id = $id");
     return mysqli_affected_rows($koneksi);
 }
+
+function ubahdata($data, $files, $id) {
+    global $koneksi;
+
+    $nama = htmlspecialchars($data['nama']);
+    $nim = htmlspecialchars($data['nim']);
+    $jurusan = htmlspecialchars($data['jurusan']);
+    $noHP = htmlspecialchars($data['noHP']);
+
+    // Handle upload foto
+    $foto = '';
+    if (isset($files['foto']) && $files['foto']['error'] === 0) {
+        $namaFile = $files['foto']['name'];
+        $tmpName = $files['foto']['tmp_name'];
+
+        $ekstensiValid = ['jpg', 'jpeg', 'png'];
+        $ekstensi = strtolower(pathinfo($namaFile, PATHINFO_EXTENSION));
+
+        if (!in_array($ekstensi, $ekstensiValid)) {
+            echo "<script>alert('Format file harus jpg, jpeg, atau png');</script>";
+            return 0;
+        }
+
+        $namaBaru = uniqid() . '.' . $ekstensi;
+        $folderTujuan = 'img/';
+        if (!is_dir($folderTujuan)) {
+            mkdir($folderTujuan, 0777, true);
+        }
+
+        if (!move_uploaded_file($tmpName, $folderTujuan . $namaBaru)) {
+            echo "<script>alert('Gagal mengupload foto');</script>";
+            return 0;
+        }
+
+        $foto = $namaBaru;
+    }
+
+    $query = "UPDATE mahasiswa SET foto='$namaBaru', nama='$nama', nim='$nim', jurusan
+    ='$jurusan', noHP='$noHP' WHERE id=$id";
+              
+    mysqli_query($koneksi, $query);
+
+    return mysqli_affected_rows($koneksi);
+}
+
+?>

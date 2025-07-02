@@ -91,11 +91,10 @@ $rows = query($query);
             <td><?= htmlspecialchars($mhs["jurusan"]) ?></td>
             <td><?= htmlspecialchars($mhs["noHP"]) ?></td>
             <td>
-                <a href="hapusdata.php?id=<?= $mhs['id'] ?>">
-                    <button class="btn-hapus">Hapus</button>
-                </a>
-                <!-- Tambahan jika nanti mau edit -->
-                <!-- <a href="editdata.php?id=<?= $mhs['id'] ?>"><button>Edit</button></a> -->
+                <a href="hapusdata.php/?id=<?= $mhs["id"] ?>"onclick="return confirm(yakin dihapus?);">
+                    <button class="btn-hapus">Hapus</button></a>
+                <a href="ubahdata.php/?id=<?= $mhs["id"] ?>">
+                    <button class="btn-hapus">edit</button></a>
             </td>
         </tr>
         <?php $i++; endforeach; ?>
