@@ -89,7 +89,7 @@ $rows = query($query);
             <td><?= htmlspecialchars($mhs["nama"]) ?></td>
             <td><?= htmlspecialchars($mhs["nim"]) ?></td>
             <td><?= htmlspecialchars($mhs["jurusan"]) ?></td>
-            <td><?= htmlspecialchars($mhs["noHP"]) ?></td>
+            <td><?= htmlspecialchars($mhs["nohp"]) ?></td>
             <td>
                 <a href="hapusdata.php/?id=<?= $mhs["id"] ?>"onclick="return confirm(yakin dihapus?);">
                     <button class="btn-hapus">Hapus</button></a>

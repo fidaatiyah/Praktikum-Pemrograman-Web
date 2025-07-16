@@ -106,8 +106,8 @@ if (isset($_POST['submit'])) {
             <label for="jurusan">Jurusan:</label>
             <input type="text" name="jurusan" id="jurusan" placeholder="Jurusan*" required value ="<?=$mhs["jurusan"]?>"/>
 
-            <label for="noHP">No HP:</label>
-            <input type="text" name="noHP" id="noHP" placeholder="noHP*" required value ="<?=$mhs["noHP"]?>"/>
+            <label for="nohp">No HP:</label>
+            <input type="text" name="nohp" id="nohp" placeholder="No HP*" required value ="<?=$mhs["nohp"]?>"/>
 
             <label for="foto">Foto:</label>
            <input type="file" name="foto" id="foto" required>
